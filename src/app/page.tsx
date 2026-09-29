@@ -19,6 +19,7 @@ import {
   Users,
 } from 'lucide-react';
 import { useState, type ReactNode } from 'react';
+import { apiBaseUrl } from '@/lib/config';
 import {
   Area,
   AreaChart,
@@ -896,12 +897,15 @@ export default function Home() {
       {!isLoggedIn ? (
         <div className="flex min-h-screen items-center justify-center bg-[#e9eef4] px-6 py-10">
           <div className="w-full max-w-6xl rounded-[32px] border border-slate-200 bg-white p-8 shadow-[0_18px_60px_rgba(15,23,42,0.08)]">
-            <div className="mb-8 flex items-center justify-between">
+            <div className="mb-8 flex items-center justify-between gap-4">
               <div>
                 <div className="text-3xl font-bold text-slate-900">Ayur<span className="text-[#f59e0b]">CTMS</span></div>
                 <div className="text-sm text-slate-500">Clinical Trial Management for Ayurveda Research</div>
               </div>
-              <div className="rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-medium text-amber-700">Prototype environment — synthetic demo data only.</div>
+              <div className="flex flex-col items-end gap-2">
+                <div className="rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-medium text-amber-700">Prototype environment — synthetic demo data only.</div>
+                <div className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-[11px] font-medium text-slate-600">API target: {apiBaseUrl}</div>
+              </div>
             </div>
             <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
               {roleCards.map(({ name, label, icon: Icon }) => (
